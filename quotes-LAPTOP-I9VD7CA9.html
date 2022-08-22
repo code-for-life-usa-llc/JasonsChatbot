@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Quotes</title>
+</head>
+<body>
+<h1 id = "quote">Be yourself; everyone else is already taken.―Oscar Wilde</h1>
+<button onclick="change()">change</button>
+<script>
+let text = document.getElementById("quote")
+Interval = setInterval(setColor, 10000);
+function setColor() {
+  let x = document.body;
+  x.style.backgroundColor = x.style.backgroundColor == "yellow" ? "pink" : "yellow";
+}
+function change(){
+    let text = document.getElementById("quote");
+    if (text.innerHTML ==="Be yourself; everyone else is already taken.―Oscar Wilde") {
+    text.innerHTML = "The greatest glory in living lies not in never falling, but in rising every time we fall. -Nelson Mandela"
+    }
+    else if (text.innerHTML ==="The greatest glory in living lies not in never falling, but in rising every time we fall. -Nelson Mandela"){
+        text.innerHTML = "Always remember that you are absolutely unique. Just like everyone else. -Margaret Mead"
+    }
+    else if (text.innerHTML ==="Always remember that you are absolutely unique. Just like everyone else. -Margaret Mead") {
+        text.innerHTML = "Whoever is happy will make others happy too. -Anne Frank"
+    }
+    else {
+        text.innerHTML = "The future belongs to those who believe in the beauty of their dreams. -Eleanor Roosevelt"
+    }
+}
+myInterval = setInterval(setColor, 1000);
+//color time change ..........................................................
+function setColor() {
+  let x = document.body;
+  x.style.backgroundColor = x.style.backgroundColor == "yellow" ? "pink" : "yellow";
+}
+ //colors that will repeat..........................................................
+function stopColor() {
+  clearInterval(myInterval);
+}
+</script>
+</body>
+</html>

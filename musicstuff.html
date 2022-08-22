@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <ul>
+      <li>	<a href="musicstuff.html">back</a></li>
+    
+       <li>	<a href="musicstuff2.html">forward</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+           </a>&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    
+          
+           
+    </ul>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&family=Rubik:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Music</title>
+  </head>
+  <body>
+    <div class="h1">
+      <h1>noteblocks :)</h1>
+    </div>
+
+    <div class="noteblock"></div>
+
+    <style>
+      body {
+        background-image: url(plsworkpng.jpg);
+      }
+
+      .noteblock {
+        text-align: center;
+      }
+
+      .h1 {
+        text-align: center;
+        font-family: "Ibarra Real Nova", serif;
+        font-family: "Rubik", sans-serif;
+      }
+
+      .button {
+        color: blue;
+        text-align: left;
+      }
+
+      .buttonsound {
+        font-family: cursive;
+        height: 200px;
+        width: 200px;
+        text-align: left;
+      }
+
+      .button2 {
+        color: blue;
+        text-align: left;
+      }
+
+      .buttonsound2 {
+        font-family: cursive;
+        height: 200px;
+        width: 200px;
+        text-align: center;
+      }
+
+      .button3 {
+        color: blue;
+        text-align: left;
+      }
+
+      .buttonsound3 {
+        font-family: cursive;
+        height: 200px;
+        width: 200px;
+        text-align: center;
+      }
+
+      .video {
+        text-align: center;
+        top: 100px;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: b;
+        position: sticky;
+      }
+      li {
+        float: left;
+        color: whitesmoke;
+        font-family: cursive;
+      }
+      li a {
+        display: block;
+        color: whitesmoke;
+        text-align: center;
+        padding: 12px 16px;
+        text-decoration: none;
+        text-align: left;
+      }
+
+      li a:hover {
+        background-color: lightskyblue;
+      }
+
+      .button8 {
+        color: blue;
+        text-align: left;
+      }
+
+      .buttonsound8 {
+        font-family: cursive;
+        height: 10px;
+        width: 10px;
+        text-align: center;
+      }
+    </style>
+
+
+
+
+    <div class="button">
+      <input
+        class="buttonsound"
+        type="image"
+        value="sound"
+        onclick="playMusic() "
+        height="200"
+        width="200"
+        <img
+        src="note.png"
+        height="400"
+        width="400"
+      />
+    </div>
+
+    <div class="button2">
+      <input
+        class="buttonsound2"
+        type="image"
+        value="sound"
+        onclick="playMusic2() "
+        height="200"
+        width="200"
+        <img
+        src="note.png"
+        height="400"
+        width="400"
+      />
+    </div>
+
+    <div class="button3">
+      <input
+        class="buttonsound3"
+        type="image"
+        value="sound"
+        onclick="playMusic3() "
+        height="200"
+        width="200"
+        <img
+        src="note.png"
+        height="400"
+        width="400"
+      />
+    </div>
+
+    <div class="button4">
+      <input
+        class="buttonsound4"
+        type="image"
+        value="sound"
+        onclick="playMusic4() "
+        height="200"
+        width="200"
+        <img
+        src="note.png"
+        height="400"
+        width="400"
+      />
+    </div>
+
+    <div class="button5">
+      <input
+        class="buttonsound5"
+        type="image"
+        value="sound"
+        onclick="playMusic5() "
+        height="200"
+        width="200"
+        <img
+        src="note.png"
+        height="400"
+        width="400"
+      />
+    </div>
+
+    <div class="button6">
+      <input
+        class="buttonsound6"
+        type="image"
+        value="sound"
+        onclick="playMusic6() "
+        height="200"
+        width="200"
+        <img
+        src="note.png"
+        height="400"
+        width="400"
+      />
+    </div>
+
+    <div class="button7">
+      <input
+        class="buttonsound7"
+        type="image"
+        value="sound"
+        onclick="playMusic7() "
+        height="200"
+        width="200"
+        <img
+        src="note.png"
+        height="400"
+        width="400"
+      />
+    </div>
+
+    <div class="button8">
+      <input
+        class="buttonsound8"
+        type="image"
+        value="sound"
+        onclick="playMusic8() "
+        height="200"
+        width="200"
+        src="note.png"
+        height="400"
+        width="400">
+    
+    </div>
+
+    <script>
+      function playMusic() {
+        var music = new Audio("1note.mp3");
+        music.play();
+      }
+
+      function playMusic2() {
+        var music = new Audio("2note.mp3");
+        music.play();
+      }
+
+      function playMusic3() {
+        var music = new Audio("3note.mp3");
+        music.play();
+      }
+
+      function playMusic4() {
+        var music = new Audio("4note.mp3");
+        music.play();
+      }
+
+      function playMusic5() {
+        var music = new Audio("5note.mp3");
+        music.play();
+      }
+
+      function playMusic6() {
+        var music = new Audio("6note.mp3");
+        music.play();
+      }
+
+      function playMusic7() {
+        var music = new Audio("7note.mp3");
+        music.play();
+      }
+
+      function playMusic8() {
+        var music = new Audio("rick.mp3");
+        music.play();
+        alert("Press OK if you are ready proceed")
+      }
+    </script>
+  </body>
+</html>

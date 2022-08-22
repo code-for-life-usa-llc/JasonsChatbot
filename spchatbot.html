@@ -1,0 +1,352 @@
+<html>
+  <head>
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova&family=Rubik:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!--google fonts-->
+    <title>chatbot</title>
+    <!--css-->
+    <style>
+      .button {
+        color: navy;
+        height: 50px;
+        width: 1350px;
+        text-align: center;
+        
+      }
+      .color {
+        background: linear-gradient(90deg, #00dbde, #fc00ff);
+        font-family: "Ibarra Real Nova", serif;
+        font-family: "Rubik", sans-serif;
+        font-size: 40px;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /*  */
+      .container {
+        border: 2px solid #dedede;
+        background-image: url(plsworkpng.jpg);
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px 0;
+        color:black;
+      }
+      /* */
+      .darker {
+        border-color: #ccc;
+        background-color: #ddd;
+      }
+      /* */
+      .container::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      /* */
+      .container img {
+        float: left;
+        max-width: 60px;
+        width: 100%;
+        margin-right: 20px;
+        border-radius: 50%;
+      }
+      /* */
+      .container img.right {
+        float: right;
+        margin-left: 20px;
+        margin-right: 0;
+      }
+      /* */
+      .time-right {
+        float: right;
+        color: #aaa;
+      }
+      /* */
+      .time-left {
+        float: left;
+        color: #999;
+      }
+
+      p {
+        font-family: "Ibarra Real Nova", serif;
+        font-family: "Rubik", sans-serif;
+      }
+      textarea {
+        font-family: "Ibarra Real Nova", serif;
+        font-family: "Rubik", sans-serif;
+      }
+
+      body {
+        background-color: darkslategrey;
+      }
+
+      ul{
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  overflow:hidden; 
+  background-color: b;
+  position:sticky
+              
+  }
+  li{
+    float:left;
+    color: whitesmoke;
+      font-family: cursive;
+  }
+  li a{
+  display: block;
+  color: whitesmoke;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  text-align:left
+  
+  }
+  
+  li a:hover{
+  
+  background-color: lightskyblue;
+  
+  }
+    </style>
+    <!--css-->
+  </head>
+  <body>
+    <ul>
+      <li>	<a href="spchatbot.html"> Spanish</a></li>
+   
+       <li>	<a href="chatbot.html">English</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+           </a>&nbsp;&nbsp;&nbsp;&nbsp;
+      
+   </ul>
+    <div align="center" class="Color">
+      <h1>Chatbot :)</h1>
+    </div>
+    <div id="canvas"></div>
+    <div class="textarea">
+      <p id="notis" style="display: none">escribiendo...</p>
+      <textarea
+        id="text"
+        rows="4"
+        cols="190"
+        placeholder="empieza a chatear aqui :)"
+      ></textarea>
+    </div>
+    <script>
+      function random(items) {
+        var item = items[Math.floor(Math.random() * items.length)];
+        return item; // Math.floor max math.ceil is min and math.random is a random.
+      }
+      function grabTime() {
+        let d = new Date();
+        let type;
+        let hours = parseInt(d.getHours());
+        let minutes = d.getMinutes().toString();
+        if (hours > 12) {
+          hours = hours - 12; // less or < than going to display 12 is am or pm
+          type = "PM";
+        } else {
+          type = "AM";
+        }
+        if (minutes.length == 1) {
+          minutes = `0${minutes}`;
+        }
+        return `${hours}:${minutes} ${type}`;
+      } // the time that is going to be displayed ☝
+      let responseTimes = [3000, 2000, 4000]; // delay when chat
+      let input = document.getElementById("text"); //ids
+      let chatBox = document.getElementById("canvas"); //ids
+      let typeNotifier = document.getElementById("notis");
+      input.addEventListener("keyup", function (event) {
+        // when you press enter i think not really sure
+
+        // New code block to implement with class
+        if (input.value.trim() == "") {
+          return;
+        }
+        // New code ^^^
+        let message = input.value;
+        let newMessageBox = document.createElement("div");
+        newMessageBox.classList.add("container");
+        newMessageBox.innerHTML = `<img src="./message.png" alt="Avatar"
+                <p>${message}</p>
+                <span class="time-right">${grabTime()}</span>`;
+        if (event.keyCode == 13) {
+          event.preventDefault();
+          input.value = " ";
+          chatBox.appendChild(newMessageBox);
+          typeNotifier.style.display = "block";
+          message = message.toString();
+          message = message.replace(/(\r\n|\n|\r)/gm, "");
+          message = message.toLowerCase();
+          if (
+            message.includes("hola") ||
+            message.includes("que tal") ||
+            message.includes("como estas") ||
+            message.includes("whats up")
+          ) {
+            // will chose one of these respone
+            response = "que quieres deja de hacerme perder el tiempo!😠";
+          } else if(message.includes("!google")){
+                      location.replace("https://www.google.com/")
+                       response =
+              "done :)";
+                    }else if(message.includes("!twitch")){
+                      location.replace("https://www.twitch.tv/")
+                       response =
+              "done :)";
+                    }
+                    else if(message.includes("!youtube")){
+                      location.replace("https://www.youtube.com/")
+                       response =
+              "done :)";
+                    }
+                    
+                    
+                    
+            else if(message.includes("!minecraft")){
+                      location.replace("https://www.minecraft.net/en-us")
+                       response =
+              "done :)";
+                    }
+                    else if(message.includes("!yt shorts")){
+                      location.replace("https://www.youtube.com/shorts/mA2hx05wh7g")
+                       response =
+              "done :)";
+                    }
+                    else if(message.includes("!tiktok")){
+                      location.replace("https://tiktok.com")
+                       response =
+              "done :)";
+                    }
+                    else if(message.includes("!github")){
+                      location.replace("https://github.com/")
+                       response =
+              "done :)";
+                    }
+                    else if (message.includes("sito webs")) {
+            response =
+              "!github, !tiktok, !yt shorts, !minecraft, !twitch, !google";
+          }else if(message.includes("!font")){
+                       document.body.style.fontFamily = random(["cursive","fantasy","serif"]);
+                       response =
+              "listo :)";}
+              else if(message.includes("!color")){
+                       document.body.style.backgroundColor = random(["red","blue","orange","green","purple","white","yellow","unset"]);
+                       response =
+              "listo :)";
+                    }
+
+
+          else if (message.includes("perdon")) {
+            response =
+              "solo jugando hazme cualquier pregunta soy un chatbot después de todo 😁.";
+          } else if (message.includes("color favorito")) {
+            response = "Me gusta mucho el azul. color muy popular.";
+          } else if (message.includes("!ayuda")) {
+            response =
+              "cuál es la hora, qué ver, qué es js, qué es c, qué es Go, qué es Perl, qué es ruby, qué es swift, qué es scala, qué es php"; // Here
+          } else if (message.includes("Bruh")) {
+            response = "let me guess what im not working properly";
+          } else if (message.includes("que es la hora")) {
+            response = random([
+              "mira la hora al lado de tu texto",
+              "no lo se miralo tu mismo",
+              "windows abajo, derecha mac arriba a la derecha ",
+            ]);
+          } else if (message.includes("que ver")) {
+            response = "mira la pelicula de los minions";
+          } else if (message.includes("what time is it")) {
+            response =
+              "If I'm running on a Mac OS, check the top right corner for the time. If I'm a Windows OS, check the bottom right. Here to help lol.";
+          } else if (message.includes("gracias")) {
+            response = random(["No hay problema", "De nada"]);
+          }
+          //HERE IS THE SPILT
+          else if (message.includes("que es js")) {
+            response =
+              "JavaScript es un lenguaje de programación central para impulsar la World Wide Web. Su efectividad en el desarrollo front-end y back-end, la capacidad de trabajar bien con otros lenguajes, la versatilidad y la actualización anual lo convierten en un lenguaje ampliamente utilizado.";
+          } else if (message.includes("que es python")) {
+            response = random([
+              "Python se considera uno de los mejores lenguajes de programación que se pueden usar para aplicaciones web y de escritorio, aplicaciones de escritorio basadas en GUI, aprendizaje automático, ciencia de datos y servidores de red.",
+              "no sé",
+            ]);
+          } //start
+          else if (message.includes("que es c")) {
+            response =
+              "C está diseñado específicamente para su uso con el sistema operativo Windows y es parte del marco .Net. Es ampliamente utilizado por programadores competitivos debido a que es extremadamente rápido y estable.";
+          } else if (message.includes("Whats Java")) {
+            response =
+              "Java is one of the languages that is popular in large organizations thanks to it a number of use-cases and has long been the preferred go-to language for coding on Android. It is widely used in Android App Development";
+          } else if (message.includes("que es Go")) {//does noat work
+            response =
+              "Also known as Golang, Go provides excellent support for multithreading and thus, it is being used by a majority of companies that rely heavily on distributed systems. Developed at Google, Go scales well to larger systems and can execute multiple processes at once.";
+          } else if (message.includes("Whats Perl")) {// does no work
+            response =
+              "Perl takes the best features from other languages, such as C, awk, sed, sh, and BASIC, among others. It is originally developed for text manipulation and now used for a wide range of tasks such as system administration, web development, network programming, GUI development, and more";
+          } else if (message.includes("quen es christopher")) {
+            response =
+              "quién es christopher paucar no me hagas empezar. una persona muy linda pero molesta. su palabra favorita pendejo";
+          }
+          
+          
+          else if (message.includes("que es ruby")) {
+            response =
+              "Ruby es un lenguaje de secuencias de comandos que se ejecuta en una variedad de plataformas, como Windows, Mac OS y las distintas versiones de UNIX. Todo en Ruby es un objeto, excepto los bloques, pero también hay reemplazos, es decir, procs y lambda.";
+          } else if (message.includes("que es swift")) {
+            response =
+              "Swift puede ser amigable con los nuevos programadores. Es un lenguaje de programación seguro, rápido e interactivo que integra lo mejor de la experiencia en lenguaje moderno con la sabiduría de la cultura de ingeniería más amplia de Apple y las diversas contribuciones de su comunidad de código abierto.";
+          } else if (message.includes("que es scala")) {
+            response =
+              "Scala combina la programación funcional con la programación orientada a objetos, lo que ofrece complejidad de código junto con una notación concisa para una mejor codificación y un mayor rendimiento. También combina la flexibilidad de las interfaces de estilo Java con el poder de las clases. Piense en la herencia múltiple basada en principios.";
+          } else if (message.includes("quen es juan")) {
+            response ="Juan es un papá increíble :)"
+              "Scala combina la programación funcional con la programación orientada a objetos, lo que ofrece complejidad de código junto con una notación concisa para una mejor codificación y un mayor rendimiento. También combina la flexibilidad de las interfaces de estilo Java con el poder de las clases. Piense en la herencia múltiple basada en principios.";
+          }
+          else if (message.includes("que es php")) {
+            response =
+              "El lenguaje de programación PHP se usa básicamente para desarrollar aplicaciones de software basadas en la web y permite a los desarrolladores web crear contenido dinámico que interactúa con las bases de datos. Es imprescindible aprender un idioma para que los estudiantes y los profesionales que trabajan se conviertan en ingenieros de software, especialmente cuando trabajan en el dominio de desarrollo web.";
+          } else if (message.includes("que es c++")) {
+            response =
+              "C++ es un lenguaje de programación de propósito general que se puede usar para desarrollar sistemas operativos, navegadores, juegos y más. Admite diferentes formas de programación, como procedimental, orientada a objetos, funcional, etc. Esto hace que C++ sea poderoso y flexible.";
+          } else if (message.includes("que es R")) {
+            response =
+              "R es uno de los lenguajes más populares comúnmente utilizados en computación estadística, análisis de datos e investigación científica. Lo utilizan estadísticos, analistas de datos, investigadores y especialistas en marketing para recuperar, limpiar, evaluar, visualizar y presentar datos. Debido a su sintaxis expresiva y su interfaz fácil de usar, R ha ganado popularidad en los últimos años";
+          } else if (message.includes("que es objective-C")) {
+            response =
+              "Objective-C es un lenguaje orientado a objetos basado en el lenguaje de programación estándar C. Está diseñado para brindar a C capacidades completas de programación orientada a objetos, y para hacerlo de una manera simple y directa. Objective-C es el principal lenguaje de programación utilizado por Apple para los sistemas operativos OS X e iOS y sus respectivas API, Cocoa y Cocoa Touch.";
+          } else if (message.includes("chao") || message.includes("cya")) {
+            response = "Chao, nos vemos pronto";
+          } else if (message.includes("Whats Java")) {
+            response =
+              "Java is one of the languages that is popular in large organizations thanks to it a number of use-cases and has long been the preferred go-to language for coding on Android. It is widely used in Android App Development";
+          } else {
+            response = random([
+              "revisa si hay errores ortográficos, eh",
+              "????",
+              "!ayuda para preguntas",
+            ]); // 👈  if the text is not 1 of these else if it will return one of these
+          }
+          setTimeout(function () {
+            let newAIresponse = document.createElement("div");
+            newAIresponse.classList.add("container");
+            newAIresponse.classList.add("darker");
+            newAIresponse.innerHTML = `<img src="./chatbot.png" alt="Avatar">
+                   <p>${response}</p>
+                     <span class="time-right">${grabTime()}</span>`;
+            chatBox.appendChild(newAIresponse);
+            typeNotifier.style.display = "none";
+          }, random(responseTimes));
+        }
+      });
+    </script>
+    <button class="button" onClick="history.go(0);">Restablecer chat</button>
+  </body>
+</html>
